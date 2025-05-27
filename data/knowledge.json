@@ -1,0 +1,93 @@
+[
+  {
+    "fecha": "2025-05-26 11:25:28",
+    "estimulo": "escucha",
+    "descripcion": "hola hola hola",
+    "tags": [
+      "voz",
+      "audio",
+      "palabra hablada"
+    ],
+    "respuesta": ""
+  },
+  {
+    "fecha": "2025-05-26 11:25:56",
+    "estimulo": "escucha",
+    "descripcion": "hola hola hola",
+    "tags": [
+      "aprendido"
+    ],
+    "respuesta": "hola"
+  },
+  {
+    "fecha": "2025-05-26 11:26:01",
+    "estimulo": "escucha",
+    "descripcion": "o sea yo haría cualquier cosa",
+    "tags": [
+      "voz",
+      "audio",
+      "palabra hablada"
+    ],
+    "respuesta": ""
+  },
+  {
+    "fecha": "2025-05-26 18:01:15",
+    "estimulo": "escucha",
+    "descripcion": "hola",
+    "tags": [
+      "aprendido"
+    ],
+    "respuesta": "¡Hola! ¿Cómo estás?"
+  },
+  {
+    "fecha": "2025-05-26 18:01:15",
+    "estimulo": "escucha",
+    "descripcion": "como estas",
+    "tags": [
+      "aprendido"
+    ],
+    "respuesta": "¡Estoy muy bien, gracias por preguntar!"
+  },
+  {
+    "fecha": "2025-05-26 18:01:15",
+    "estimulo": "escucha",
+    "descripcion": "cual es tu nombre",
+    "tags": [
+      "aprendido"
+    ],
+    "respuesta": "Me llamo myIA, un placer conocerte"
+  },
+  {
+    "fecha": "2025-05-27 14:04:56",
+    "estimulo": "escucha",
+    "descripcion": "se está haciendo un bache la Valdivia acá",
+    "tags": [
+      "voz",
+      "audio",
+      "palabra hablada"
+    ],
+    "respuesta": ""
+  },
+  {
+    "fecha": "2025-05-27 14:06:32",
+    "estimulo": "escucha",
+    "descripcion": "Cómo estás",
+    "tags": [
+      "voz",
+      "audio",
+      "palabra hablada"
+    ],
+    "respuesta": ""
+  },
+  {
+    "fecha": "2025-05-27 14:06:48",
+    "estimulo": "escucha",
+    "descripcion": "esperando que aprendas muchas cosas para poder hablar muy bien contigo",
+    "tags": [
+      "voz",
+      "audio",
+      "palabra hablada"
+    ],
+    "respuesta": ""
+  }
+]
