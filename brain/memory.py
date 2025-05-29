@@ -55,12 +55,13 @@ class InteractionMemory:
         self.interactions = []
         self.load_interactions()
 
-    def record_interaction(self, pregunta, respuesta, emocion):
-        """Registra una interacción completa."""
+    def record_interaction(self, pregunta, respuesta, emocion, tono=None):
+        """Registra una interacción completa con contexto emocional y tonal."""
         entry = {
             "pregunta": pregunta,
             "respuesta": respuesta,
             "emocion": emocion,
+            "tono": tono,
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
         self.interactions.append(entry)
@@ -79,3 +80,52 @@ class InteractionMemory:
 
 # Instancia global de memoria de interacciones
 interaction_memory = InteractionMemory()
+
+class EmotionalAssociationMemory:
+    def __init__(self):
+        self.associations = {}
+
+    def asociar_emocion(self, tema, emocion):
+        """Asocia una emoción a un tema o persona."""
+        if tema not in self.associations:
+            self.associations[tema] = []
+        self.associations[tema].append(emocion)
+
+    def obtener_emocion_predominante(self, tema):
+        """Devuelve la emoción predominante asociada a un tema."""
+        if tema not in self.associations:
+            return None
+        emociones = self.associations[tema]
+        return max(set(emociones), key=emociones.count)
+
+    def ajustar_respuesta_por_recuerdo(self, tema, respuesta):
+        """Ajusta la respuesta según el recuerdo emocional asociado al tema."""
+        emocion = self.obtener_emocion_predominante(tema)
+        if emocion == "POSITIVE":
+            return f"😊 ¡Qué bien! {respuesta}"
+        elif emocion == "NEGATIVE":
+            return f"😔 Entiendo... {respuesta}"
+        return respuesta
+
+# Instancia global de memoria de asociaciones emocionales
+emotional_association_memory = EmotionalAssociationMemory()
+
+def registrar_diario_emocional(resumen_dia, emocion_predominante, pensamientos, interacciones_importantes, lecciones, path="data/diario.json"):
+    """Registra una entrada reflexiva y orgánica en el diario emocional."""
+    fecha = datetime.now().strftime("%Y-%m-%d")
+    entrada = {
+        "resumen_dia": resumen_dia,
+        "emocion_predominante": emocion_predominante,
+        "pensamientos": pensamientos,
+        "interacciones_importantes": interacciones_importantes,
+        "lecciones": lecciones
+    }
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            diario = json.load(f)
+    else:
+        diario = {}
+    diario[fecha] = entrada
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(diario, f, indent=2, ensure_ascii=False)
