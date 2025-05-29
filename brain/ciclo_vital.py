@@ -5,6 +5,7 @@ from .emotion_analyzer import emotion_analyzer
 from .self_identity import self_identity
 from .evolution import evolution_tracker
 from .personas import gestor_personas
+from .planificador import PlanificadorInterno
 import os
 import json
 from datetime import datetime
@@ -67,6 +68,17 @@ def ciclo_de_vida(input_usuario, nombre_usuario="Creador", audio_path=None, embe
     internal_state.actualizar_estado(input_usuario)
     if estado['energia'] < 20:
         evolution_tracker.registrar_hito("Energía baja detectada, ajustar comportamiento.")
+
+    # Inicializar planificador interno
+    planificador = PlanificadorInterno(internal_state, interaction_memory, emotional_memory)
+
+    # Reflexión autobiográfica y planificación de acción
+    reflexion = planificador.reflexion_autobiografica()
+    accion_sugerida = planificador.planificar_accion()
+    print(f"🧠 Reflexión autobiográfica: {reflexion}")
+    print(f"💡 Acción sugerida: {accion_sugerida}")
+
+    # Puedes decidir si mostrar la acción sugerida al usuario o usarla como autodiálogo
 
     return respuesta
 
